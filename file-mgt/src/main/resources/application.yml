@@ -7,4 +7,13 @@ spring:
       host: localhost
       port: 27017
       database: BcbsDb
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+file-mgt:
+  processor:
+    location: "/bcbs_test_folder/file_processor/"
+        
       

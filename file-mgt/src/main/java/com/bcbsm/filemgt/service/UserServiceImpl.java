@@ -22,6 +22,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	/**
+	 * This loads the user from repository.
+	 */
 	@Override
 	public UserModel getUser(String name) {
 		BcbsUser objBcbsUser = userRepository.findUserByUsername(name);
@@ -35,6 +38,9 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	/**
+	 * This creates the new user in the repository.
+	 */
 	@Override
 	public String addUser(UserModel user) {
 

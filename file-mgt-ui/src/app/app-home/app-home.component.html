@@ -1,17 +1,22 @@
 <div style="text-align:center" class="container">
-    <h1>
-      {{title}}!
-    </h1>
-    <div class="container">
-      <div *ngIf="!isAuthenticated">
-        <button (click)="login()">Login</button>
-      </div>
-      
-      <div *ngIf="isAuthenticated">
-        <p>Welcome {{userObj?.username}}</p>
-        <button (click)="compressFiles()">Compress Files</button>
-      </div>
-
-      <p></p>
+  <h1>
+    {{title}}!
+  </h1>
+  <div class="container">
+    <div *ngIf="!isAuthenticated">
+      <button (click)="login()">Login</button>
     </div>
+
+    <div *ngIf="isAuthenticated">
+      <h2>Welcome {{userObj?.username}}</h2>
+      <p><input type="file" class="file-upload" (change)="loadFile($event)"></p>
+      <div *ngIf="canShowFiles()">
+        <h3>Files Selected</h3>
+        <p *ngFor="let file of filesToUpload">{{file.name}}</p>
+      </div>
+      <button (click)="uploadCompressAndDownload()" *ngIf="canDownloadZipFile()">Download Zip File</button>
+    </div>
+
+    <p></p>
   </div>
+</div>
