@@ -28,7 +28,7 @@ import com.bcbsm.filemgt.exception.FileMgtException;
 @Component
 public class FileProcessor {
 
-	@Value("${file-mgt.processor.location}")
+	@Value("${file-mgt.processor.location:bcbs_file_processor}")
 	private String FILER_PROCESSOR_DIR;
 
 	/**
